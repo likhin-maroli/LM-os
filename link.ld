@@ -1,7 +1,7 @@
-ENTRY(_start)                /* the name of the entry label */
+ENTRY(_start)                /* The name of the entry label */
 
 SECTIONS {
-    . = 0x00100000;          /* the code should be loaded at 1 MB */
+    . = 0x00100000;          /* The code should be loaded at 1 MB */
 
     .multiboot :
     {
@@ -9,8 +9,28 @@ SECTIONS {
         *(.multiboot)
     }
 
-    .text ALIGN (0x1000) :   /* align at 4 KB */
+    .text ALIGN (0x1000) :   /* Align at 4 KB */
     {
-        *(.text)             /* all text sections from all files */
+        *(.text)             /* All text sections from all files */
+    }
+
+
+    .rodata :                /* For read only data */
+    {
+         *(.rodata)
+    }
+
+
+    .data :                  /* For data  */
+    {
+        *.(.data)
+    }
+
+    .bss :                   /* Uninitiated data */
+    {
+        sbss = .;            /* Start of the bss section */
+        *(.bss)
+        ebss = .;            /* End of bss section */
     }
 }
+

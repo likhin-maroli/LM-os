@@ -19,7 +19,7 @@ align 4                         ; the code must be 4 byte aligned
 section .text
 global _start
 _start:
-    mov esp, statck_top          ; setup stack
+    mov esp, stack_top          ; setup stack
     extern kernel_main
     call kernel_main             ; jump to kernel_main()
 
