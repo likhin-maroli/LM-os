@@ -1,11 +1,11 @@
 AS := nasm 
 ASFLAGS := -f elf32 
 
-LD := x86_64-elf-ld
+LD := ld
 LDFLAGS := -melf_i386
 LDFILE := link.ld
 
-CC := x86_64-elf-gcc
+CC := gcc
 CCFLAGS := -m32 -ffreestanding -fno-pie -c
 
 SRC_C:= $(wildcard *.c)
@@ -39,4 +39,4 @@ iso: kernel
 
 
 clean:
-	del *.o *.iso kernel 
+	rm -f *.o *.iso kernel 

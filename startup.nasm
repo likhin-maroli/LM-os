@@ -30,9 +30,9 @@ halt:
 
 section .bss
     align 16
-    stack_top:
-        resb 1024*1024            ;1MB memory allocation for stack
     stack_bottom:
+        resb 1024*1024            ;1MB memory allocation for stack
+    stack_top:
 
 
     
